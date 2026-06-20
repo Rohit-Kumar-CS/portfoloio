@@ -29,6 +29,8 @@ import database from './assets/mysql-plain-wordmark.png'
 import github from './assets/github-original.png'
 import git from './assets/git-plain.png'
 import figma from './assets/figma-original.png'
+import word from './assets/word1.png'
+import finder from './assets/IdFinder1.png'
 import './App.css'
 
 function App() {
@@ -285,12 +287,12 @@ function App() {
               {/* Project Card 1 */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5 }} className="flex flex-col gap-4 w-full group">
                 <div className="aspect-[3/2] w-full bg-neutral-100 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200/70 shadow-sm cursor-pointer flex items-center justify-center p-4 text-center">
-                  <span className="text-neutral-400 font-sans text-xs sm:text-sm font-medium">Learnlogicify Landing Page Cover</span>
+                  <span className="text-neutral-400 font-sans text-xs sm:text-sm font-medium"><img src={word} alt="Word Guessing Game" className="w-full h-full object-contain rounded-lg" /></span>
                 </div>
                 <div className="flex items-center px-1">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
-                    <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Learnlogicify Landing Page</span>
+                    <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Word Guessing Game</span>
                   </div>
                 </div>
               </motion.div>
@@ -298,12 +300,12 @@ function App() {
               {/* Project Card 2 */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5 }} className="flex flex-col gap-4 w-full group">
                 <div className="aspect-[3/2] w-full bg-cyan-900/5 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200/70 shadow-sm cursor-pointer flex items-center justify-center p-4 text-center">
-                  <span className="text-neutral-400 font-sans text-xs sm:text-sm font-medium">Winzee Web Chat Preview</span>
+                  <span className="text-neutral-400 font-sans text-xs sm:text-sm font-medium"><img src={finder} alt="Id Finder" className="w-full h-full object-contain rounded-lg" /></span>
                 </div>
                 <div className="flex items-center px-1">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
-                    <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Winzee Web Chat application</span>
+                    <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Id Finder</span>
                   </div>
                 </div>
               </motion.div>
