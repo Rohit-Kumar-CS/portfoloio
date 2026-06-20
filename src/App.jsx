@@ -600,6 +600,7 @@ function App() {
           </div>
         </div>
 
+
         {/* --- POPUP CONNECT WINDOW MODAL CONTAINER --- */}
         <AnimatePresence>
           {isContactOpen && (
@@ -637,5 +638,4 @@ function App() {
     </>
   )
 }
-
 export default App
