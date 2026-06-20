@@ -31,6 +31,8 @@ import git from './assets/git-plain.png'
 import figma from './assets/figma-original.png'
 import word from './assets/word1.png'
 import finder from './assets/IdFinder1.png'
+import weather from './assets/weather.png'
+import trans from './assets/T-images.jfif'
 import './App.css'
 
 function App() {
@@ -76,7 +78,7 @@ function App() {
     if (file) {
       // Clean string extension for dynamic layout rendering
       const cleanTitle = file.name.split('.').slice(0, -1).join('.') || file.name;
-      
+
       // Generating live preview blob address stream
       const fileViewUrl = URL.createObjectURL(file);
 
@@ -292,8 +294,8 @@ function App() {
                 <div className="flex items-center px-1">
                   <div className="flex items-center gap-3">
                     <a href="https://wordle-clone-gamma-snowy.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
-                    <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Word Guessing Game</span>
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
+                      <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Word Guessing Game</span>
                     </a>
                   </div>
                 </div>
@@ -317,12 +319,14 @@ function App() {
               {/* Project Card 3 */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5 }} className="flex flex-col gap-4 w-full group">
                 <div className="aspect-[3/2] w-full bg-neutral-900 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 shadow-sm cursor-pointer flex items-center justify-center p-4 text-center">
-                  <span className="text-neutral-500 font-sans text-xl sm:text-2xl font-bold">ChatGPT Clone Layout</span>
+                  <span className="text-neutral-500 font-sans text-xl sm:text-2xl font-bold"><img src={weather} alt="Weather App" className="w-full h-full object-contain rounded-lg" /></span>
                 </div>
                 <div className="flex items-center px-1">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
-                    <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">ChatGPT clone</span>
+                    <a href="https://weather-app-using-openweathermap-ap.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
+                      <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Weather App</span>
+                    </a>
                   </div>
                 </div>
               </motion.div>
@@ -330,12 +334,14 @@ function App() {
               {/* Project Card 4 */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5 }} className="flex flex-col gap-4 w-full group">
                 <div className="aspect-[3/2] w-full bg-neutral-950 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 shadow-sm cursor-pointer flex items-center justify-center p-4 text-center">
-                  <span className="text-neutral-600 font-sans text-xl sm:text-2xl font-bold">Gemini AI Assistant UI</span>
+                  <span className="text-neutral-600 font-sans text-xl sm:text-2xl font-bold"><img src={trans} alt="Translate App" className="w-110  object-contain rounded-lg" /></span>
                 </div>
                 <div className="flex items-center px-1">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
-                    <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Gemini Clone</span>
+                    <a href="https://translate-app.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
+                      <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Translate App</span>
+                    </a>
                   </div>
                 </div>
               </motion.div>
@@ -504,16 +510,16 @@ function App() {
             </p>
 
             {/* Hidden Input File Element */}
-            <input 
-              type="file" 
-              ref={fileInputRef} 
-              onChange={handleFileChange} 
-              accept=".pdf, image/*" 
-              className="hidden" 
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleFileChange}
+              accept=".pdf, image/*"
+              className="hidden"
             />
 
             {/* Interactive Drag/Click Upload Container Block */}
-            <div 
+            <div
               onClick={onUploadBoxClick}
               className="w-full border-2 border-dashed border-neutral-800 bg-neutral-900/40 rounded-2xl sm:rounded-3xl p-8 sm:p-12 flex flex-col items-center justify-center text-center group hover:border-blue-500/50 transition-all cursor-pointer mb-8 sm:mb-12"
             >
@@ -528,7 +534,7 @@ function App() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full mb-24">
               <AnimatePresence>
                 {uploadedCertificates.map((cert) => (
-                  <motion.div 
+                  <motion.div
                     key={cert.id}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -537,9 +543,9 @@ function App() {
                   >
                     {/* View Action Trigger Button Link */}
                     {cert.fileUrl ? (
-                      <a 
-                        href={cert.fileUrl} 
-                        target="_blank" 
+                      <a
+                        href={cert.fileUrl}
+                        target="_blank"
                         rel="noreferrer"
                         className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-neutral-200 text-xs font-sans px-3 py-1.5 rounded-xl transition-all opacity-100 sm:opacity-0 sm:group-hover:opacity-100 backdrop-blur-md"
                       >
