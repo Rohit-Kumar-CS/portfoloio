@@ -308,7 +308,7 @@ function App() {
                   <div className="flex items-center gap-3">
                     <a href="https://webpage-using-api.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
                       <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
-                      <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Id Finder</span>
+                      <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Find the github account with username</span>
                     </a>
                   </div>
                 </div>
