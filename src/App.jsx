@@ -348,7 +348,7 @@ function App() {
             </div>
 
             <button className="font-sans font-semibold text-base sm:text-lg text-neutral-900 mt-12 sm:mt-16 rounded-full border-2 border-neutral-900 px-6 py-3 sm:px-8 sm:py-3.5 hover:bg-neutral-900 hover:text-white transition-all cursor-pointer">
-              Explore more
+             <a href="https://github.com/Rohit-Kumar-CS?tab=repositories" target="_blank" rel="noopener noreferrer">Explore more</a>
             </button>
           </section>
 
