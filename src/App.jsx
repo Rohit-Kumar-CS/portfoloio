@@ -239,7 +239,7 @@ function App() {
             <img src={heroImg} alt="Hero" className="w-full h-[50vh] sm:h-auto object-cover object-center opacity-95 sm:opacity-100" />
 
             <div className="absolute top-4 left-4 sm:top-5 sm:left-10 text-white text-sm sm:text-xl font-light drop-shadow-md z-10">
-              @ Code by Ashwin
+              @ Code by Rohit
             </div>
 
             <div className="absolute top-5 right-10 text-right text-white text-sm max-w-xs md:max-w-md hidden md:block z-10 drop-shadow-md">
@@ -592,11 +592,11 @@ function App() {
         <div className="max-w-6xl mx-auto mt-12 sm:mt-20 pt-6 sm:pt-8 border-t border-neutral-200/60 flex flex-col sm:flex-row items-start gap-6 sm:gap-24 text-xs sm:text-sm font-sans">
           <div className="flex flex-col gap-1">
             <span className="text-neutral-400 font-medium tracking-wide uppercase text-[10px] sm:text-xs">Email</span>
-            <a href="mailto:its.ashwin.23@gmail.com" className="text-neutral-800 font-semibold text-sm sm:text-base hover:text-blue-600 transition-colors">rk.rohitkumar.tech@gmail.com</a>
+            <a href="mailto:rk.rohitkumar.tech@gmail.com" className="text-neutral-800 font-semibold text-sm sm:text-base hover:text-blue-600 transition-colors">rk.rohitkumar.tech@gmail.com</a>
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-neutral-400 font-medium tracking-wide uppercase text-[10px] sm:text-xs">Phone</span>
-            <a href="tel:+918248669086" className="text-neutral-800 font-semibold text-sm sm:text-base hover:text-blue-600 transition-colors tracking-wide">(+91) 8392822055</a>
+            <a href="tel:+918392822055" className="text-neutral-800 font-semibold text-sm sm:text-base hover:text-blue-600 transition-colors tracking-wide">(+91) 8392822055</a>
           </div>
         </div>
 
