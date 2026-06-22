@@ -128,7 +128,7 @@ function App() {
             }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer flex-shrink-0 ${activePage === 'home' ? 'bg-white' : 'bg-white/10 hover[...]
+            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer flex-shrink-0 ${activePage === 'home' ? 'bg-white' : 'bg-white/10 hover:bg-white/20'
               }`}
           >
             <img
@@ -191,7 +191,7 @@ function App() {
             }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer flex-shrink-0 ${activePage === 'certificates' ? 'bg-white' : 'bg-white/[...]
+            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer flex-shrink-0 ${activePage === 'certificates' ? 'bg-white' : 'bg-white/10 hover:bg-white/20'
               }`}
           >
             <img src={Certifications} alt="Certifications" className={`w-4 h-4 sm:w-5 sm:h-5 ${activePage === 'certificates' ? 'brightness-0' : ''}`} />
@@ -205,7 +205,7 @@ function App() {
             }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer flex-shrink-0 ${activePage === 'documents' ? 'bg-white' : 'bg-white/10 [...]
+            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer flex-shrink-0 ${activePage === 'documents' ? 'bg-white' : 'bg-white/10 hover:bg-white/20'
               }`}
           >
             <img src={arrow1} alt="Documents Page" className={`w-4 h-4 sm:w-5 sm:h-5 ${activePage === 'documents' ? 'brightness-0' : ''}`} />
@@ -249,12 +249,12 @@ function App() {
             </div>
 
             <div className="absolute bottom-6 sm:bottom-16 md:bottom-24 lg:bottom-30 left-0 w-full overflow-hidden select-none pointer-events-none z-0">
-              <h1 className="text-[10vw] sm:text-[70px] md:text-[100px] lg:text-[150px] font-semibold text-white tracking-tight leading-none text-center px-4 w-full block whitespace-normal sm:whi[...]
+              <h1 className="text-[10vw] sm:text-[70px] md:text-[100px] lg:text-[150px] font-semibold text-white tracking-tight leading-none text-center px-4 w-full block whitespace-normal sm:whitespace-nowrap">
                 Creative Developer & Designer
               </h1>
             </div>
 
-            <button className="absolute top-1/2 right-[10%] sm:right-[30%] -translate-y-1/2 w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center transition-transform hover:scale-105 active:[...]
+            <button className="absolute top-1/2 right-[10%] sm:right-[30%] -translate-y-1/2 w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 z-10">
               <img src={logo} alt="Logo" className="w-full h-full object-contain" />
             </button>
           </section>
@@ -262,7 +262,7 @@ function App() {
           {/* --- STATEMENT BIOGRAPHY --- */}
           <section className="flex flex-col lg:flex-row items-start lg:items-center justify-between px-4 sm:px-10 md:px-20 py-10 sm:py-16 gap-6 sm:gap-10 bg-white">
             <div className="font-sans text-base sm:text-lg md:text-xl font-semibold max-w-2xl text-neutral-900 leading-relaxed">
-              MCA student and aspiring Full-Stack Developer with a background in Computer Science. Passionate about building modern web applications, learning new technologies, and turning ideas [...]
+              MCA student and aspiring Full-Stack Developer with a background in Computer Science. Passionate about building modern web applications, learning new technologies, and turning ideas into meaningful digital experiences.
             </div>
 
             <div className="font-sans lg:text-right text-xs sm:text-sm text-[#616161] max-w-md flex flex-col gap-4 self-stretch justify-between items-start lg:items-end">
@@ -287,14 +287,14 @@ function App() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-8 sm:gap-y-14 w-full max-w-6xl">
               {/* Project Card 1 */}
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5 }} className="flex flex-col gap[...]"
-                <div className="aspect-[3/2] w-full bg-neutral-100 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200/70 shadow-sm cursor-pointer flex items-center justify-cente[...]
-                  <span className="text-neutral-400 font-sans text-xs sm:text-sm font-medium"><img src={word} alt="Word Guessing Game" className="w-full h-full object-contain rounded-lg" /></span[...]
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5 }} className="flex flex-col gap-4 w-full group">
+                <div className="aspect-[3/2] w-full bg-neutral-100 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200/70 shadow-sm cursor-pointer flex items-center justify-center p-4 text-center">
+                  <span className="text-neutral-400 font-sans text-xs sm:text-sm font-medium"><img src={word} alt="Word Guessing Game" className="w-full h-full object-contain rounded-lg" /></span>
                 </div>
                 <div className="flex items-center px-1">
                   <div className="flex items-center gap-3">
                     <a href="https://wordle-clone-gamma-snowy.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
-                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transitio[...]
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
                       <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Word Guessing Game</span>
                     </a>
                   </div>
@@ -302,14 +302,14 @@ function App() {
               </motion.div>
 
               {/* Project Card 2 */}
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5 }} className="flex flex-col gap[...]"
-                <div className="aspect-[3/2] w-full bg-cyan-900/5 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200/70 shadow-sm cursor-pointer flex items-center justify-center[...]
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5 }} className="flex flex-col gap-4 w-full group">
+                <div className="aspect-[3/2] w-full bg-cyan-900/5 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200/70 shadow-sm cursor-pointer flex items-center justify-center p-4 text-center">
                   <span className="text-neutral-400 font-sans text-xs sm:text-sm font-medium"><img src={finder} alt="Id Finder" className="w-full h-full object-contain rounded-lg" /></span>
                 </div>
                 <div className="flex items-center px-1">
                   <div className="flex items-center gap-3">
                     <a href="https://webpage-using-api.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
-                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transitio[...]
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
                       <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Find the github account with username</span>
                     </a>
                   </div>
@@ -317,14 +317,14 @@ function App() {
               </motion.div>
 
               {/* Project Card 3 */}
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5 }} className="flex flex-col gap[...]"
-                <div className="aspect-[3/2] w-full bg-neutral-900 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 shadow-sm cursor-pointer flex items-center justify-center p[...]
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5 }} className="flex flex-col gap-4 w-full group">
+                <div className="aspect-[3/2] w-full bg-neutral-900 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 shadow-sm cursor-pointer flex items-center justify-center p-4 text-center">
                   <span className="text-neutral-500 font-sans text-xl sm:text-2xl font-bold"><img src={weather} alt="Weather App" className="w-full h-full object-contain rounded-lg" /></span>
                 </div>
                 <div className="flex items-center px-1">
                   <div className="flex items-center gap-3">
                     <a href="https://weather-app-using-openweathermap-ap.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
-                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transitio[...]
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
                       <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Weather App</span>
                     </a>
                   </div>
@@ -332,14 +332,14 @@ function App() {
               </motion.div>
 
               {/* Project Card 4 */}
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5 }} className="flex flex-col gap[...]"
-                <div className="aspect-[3/2] w-full bg-neutral-950 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 shadow-sm cursor-pointer flex items-center justify-center p[...]
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5 }} className="flex flex-col gap-4 w-full group">
+                <div className="aspect-[3/2] w-full bg-neutral-950 rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-800 shadow-sm cursor-pointer flex items-center justify-center p-4 text-center">
                   <span className="text-neutral-600 font-sans text-xl sm:text-2xl font-bold"><img src={trans} alt="Translate App" className="w-110  object-contain rounded-lg" /></span>
                 </div>
                 <div className="flex items-center px-1">
                   <div className="flex items-center gap-3">
                     <a href="https://translate-app.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
-                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transitio[...]
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-neutral-300 flex items-center justify-center bg-white cursor-pointer hover:bg-neutral-50 shadow-sm transition-all"><img src={arrow3} alt="Explore" className="w-6 h-6 sm:w-8 sm:h-8" /></div>
                       <span className="font-sans font-medium text-base sm:text-lg text-neutral-900">Translate App</span>
                     </a>
                   </div>
@@ -347,7 +347,7 @@ function App() {
               </motion.div>
             </div>
 
-            <button className="font-sans font-semibold text-base sm:text-lg text-neutral-900 mt-12 sm:mt-16 rounded-full border-2 border-neutral-900 px-6 py-3 sm:px-8 sm:py-3.5 hover:bg-neutral-9[...]
+            <button className="font-sans font-semibold text-base sm:text-lg text-neutral-900 mt-12 sm:mt-16 rounded-full border-2 border-neutral-900 px-6 py-3 sm:px-8 sm:py-3.5 hover:bg-neutral-900 hover:text-white transition-all cursor-pointer">
              <a href="https://github.com/Rohit-Kumar-CS?tab=repositories" target="_blank" rel="noopener noreferrer">Explore more</a>
             </button>
           </section>
@@ -359,7 +359,7 @@ function App() {
             </h1>
 
             <div className="w-full bg-neutral-950 p-4 sm:p-6 text-white flex justify-center items-center overflow-hidden rounded-2xl sm:rounded-3xl">
-              <motion.div variants={bentoContainerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="w-full max-w-6xl grid grid-cols-1 md:grid-[...]
+              <motion.div variants={bentoContainerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[minmax(150px,_auto)]">
 
                 <motion.div variants={bentoCardVariants} className="bg-neutral-900 border border-neutral-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col justify-between lg:row-span-2">
                   <div className="flex flex-wrap gap-3 mb-4 sm:mb-6">
@@ -400,7 +400,7 @@ function App() {
 
                 <motion.div variants={bentoCardVariants} className="bg-neutral-900 border border-neutral-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col justify-between">
                   <div className="flex gap-3 mb-4 sm:mb-6">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-neutral-800 flex items-center justify-center"><img src={frameMotion} alt="Framer Motion" className="w-5 sm:w-6" /></d[...]
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-neutral-800 flex items-center justify-center"><img src={frameMotion} alt="Framer Motion" className="w-5 sm:w-6" /></div>
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-semibold mb-2">Web Animations</h3>
@@ -484,8 +484,8 @@ function App() {
             </p>
 
             {/* Drag & Drop Glassmorphism Frame Box */}
-            <div className="w-full border-2 border-dashed border-neutral-800 bg-neutral-900/40 rounded-2xl sm:rounded-3xl p-8 sm:p-16 flex flex-col items-center justify-center text-center group h[...]
-              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-t[...]
+            <div className="w-full border-2 border-dashed border-neutral-800 bg-neutral-900/40 rounded-2xl sm:rounded-3xl p-8 sm:p-16 flex flex-col items-center justify-center text-center group hover:border-blue-500/50 transition-all cursor-pointer">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-xl sm:text-2xl text-neutral-400">↑</span>
               </div>
               <p className="text-neutral-200 font-semibold text-base sm:text-lg">Click to select files or drag them here</p>
@@ -521,9 +521,9 @@ function App() {
             {/* Interactive Drag/Click Upload Container Block */}
             <div
               onClick={onUploadBoxClick}
-              className="w-full border-2 border-dashed border-neutral-800 bg-neutral-900/40 rounded-2xl sm:rounded-3xl p-8 sm:p-12 flex flex-col items-center justify-center text-center group hove[...]
+              className="w-full border-2 border-dashed border-neutral-800 bg-neutral-900/40 rounded-2xl sm:rounded-3xl p-8 sm:p-12 flex flex-col items-center justify-center text-center group hover:border-blue-500/50 transition-all cursor-pointer mb-8 sm:mb-12"
             >
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-t[...]
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <span className="text-lg sm:text-xl text-neutral-400">＋</span>
               </div>
               <p className="text-neutral-200 font-semibold text-sm sm:text-base">Click to upload your Certificate</p>
@@ -539,7 +539,7 @@ function App() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4 }}
-                    className="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-5 sm:p-6 h-40 sm:h-48 flex flex-col justify-between group hover:border-neutral-700 transition-all relative[...]
+                    className="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-5 sm:p-6 h-40 sm:h-48 flex flex-col justify-between group hover:border-neutral-700 transition-all relative overflow-hidden"
                   >
                     {/* View Action Trigger Button Link */}
                     {cert.fileUrl ? (
@@ -547,7 +547,7 @@ function App() {
                         href={cert.fileUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-neutral-200 text-xs font-sans px-3 py-1.5 rounded-xl transition-all opacity-100 sm:opacity-0 sm:group-[...]
+                        className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-neutral-200 text-xs font-sans px-3 py-1.5 rounded-xl transition-all opacity-100 sm:opacity-0 sm:group-hover:opacity-100 backdrop-blur-md"
                       >
                         View PDF ↗
                       </a>
@@ -582,7 +582,7 @@ function App() {
               onClick={() => setIsContactOpen(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.96 }}
-              className="relative z-10 w-32 h-32 sm:w-44 sm:h-44 rounded-full bg-[#405cf5] hover:bg-blue-700 text-white font-sans font-medium text-sm sm:text-base shadow-xl flex items-center just[...]
+              className="relative z-10 w-32 h-32 sm:w-44 sm:h-44 rounded-full bg-[#405cf5] hover:bg-blue-700 text-white font-sans font-medium text-sm sm:text-base shadow-xl flex items-center justify-center transition-colors duration-300 focus:outline-none cursor-pointer"
             >
               Get in touch
             </motion.button>
@@ -605,30 +605,30 @@ function App() {
         <AnimatePresence>
           {isContactOpen && (
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsContactOpen(false)} className="absolute inset-0 bg-black/60 backdrop-blur-sm"[...]
-              <motion.div initial={{ opacity: 0, scale: 0.92, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.92, y: 20 }} transition={{ type: 'spring', duration: 0[...]
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsContactOpen(false)} className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+              <motion.div initial={{ opacity: 0, scale: 0.92, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.92, y: 20 }} transition={{ type: 'spring', duration: 0.45 }} className="relative w-full max-w-md bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-neutral-100 z-10 flex flex-col max-h-[90vh] overflow-y-auto">
                 <div className="flex items-center justify-between mb-5 sm:mb-6">
                   <div>
                     <h3 className="font-sans text-xl sm:text-2xl font-bold text-neutral-900">Let's Connect</h3>
                     <p className="text-xs text-neutral-400 mt-0.5">Drop your details to get a conversation started.</p>
                   </div>
-                  <button onClick={() => setIsContactOpen(false)} className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200/80 text-neutral-500 flex items-center justify-center transiti[...]
+                  <button onClick={() => setIsContactOpen(false)} className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200/80 text-neutral-500 flex items-center justify-center transition-colors cursor-pointer">✕</button>
                 </div>
 
                 <form onSubmit={handleFormSubmit} className="flex flex-col gap-3 sm:gap-4">
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[10px] sm:text-xs font-semibold text-neutral-600 uppercase tracking-wide px-1">Your Name</label>
-                    <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Enter your full name" className="w-full rou[...]
+                    <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Enter your full name" className="w-full rounded-xl sm:rounded-2xl border border-neutral-200 bg-neutral-50/50 px-3.5 py-2.5 sm:px-4 sm:py-3.5 font-sans text-sm text-neutral-900 placeholder-neutral-400 focus:border-blue-500 focus:bg-white focus:outline-none transition-all" />
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[10px] sm:text-xs font-semibold text-neutral-600 uppercase tracking-wide px-1">Email Address</label>
-                    <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="name@company.com" className="w-full roun[...]
+                    <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="name@company.com" className="w-full rounded-xl sm:rounded-2xl border border-neutral-200 bg-neutral-50/50 px-3.5 py-2.5 sm:px-4 sm:py-3.5 font-sans text-sm text-neutral-900 placeholder-neutral-400 focus:border-blue-500 focus:bg-white focus:outline-none transition-all" />
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[10px] sm:text-xs font-semibold text-neutral-600 uppercase tracking-wide px-1">Message</label>
-                    <textarea required rows="3" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Tell me a bit about your awesome proj[...]
+                    <textarea required rows="3" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Tell me a bit about your awesome project goals..." className="w-full rounded-xl sm:rounded-2xl border border-neutral-200 bg-neutral-50/50 px-3.5 py-2.5 sm:px-4 sm:py-3.5 font-sans text-sm text-neutral-900 placeholder-neutral-400 focus:border-blue-500 focus:bg-white focus:outline-none transition-all resize-none" />
                   </div>
-                  <motion.button whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.98 }} type="submit" className="w-full mt-2 rounded-xl sm:rounded-2xl bg-neutral-900 hover:bg-neutral-800 text-wh[...]
+                  <motion.button whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.98 }} type="submit" className="w-full mt-2 rounded-xl sm:rounded-2xl bg-neutral-900 hover:bg-neutral-800 text-white py-3 sm:py-4 font-sans font-semibold text-sm transition-colors shadow-lg cursor-pointer">Send Message</motion.button>
                 </form>
               </motion.div>
             </div>
