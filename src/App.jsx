@@ -33,28 +33,51 @@ import word from './assets/word1.png'
 import finder from './assets/IdFinder1.png'
 import weather from './assets/weather.png'
 import trans from './assets/T-images.jfif'
+
+// --- LOCAL ASSETS IMAGES IMPORTS FOR CERTIFICATES AND CV ---
+import mernCertImg from './assets/certf2.jpeg'
+import awsCertImg from './assets/certf1.jpeg'
+import myCvImg from './assets/cv.png'
+
 import './App.css'
 
 function App() {
   // Page Section Controller State (home, documents, certificates)
   const [activePage, setActivePage] = useState('home');
 
-  // Contact Modal State Management
+  // Modal Controllers Management States
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isCvOpen, setIsCvOpen] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+  
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-  // Dynamic Uploaded Certificates State Management
+  // Curated Static Preloaded Certificates Array using imported local files
   const [uploadedCertificates, setUploadedCertificates] = useState([
-    { id: 1, title: 'MERN Engineering Certification', category: 'Full-Stack Development', color: 'text-blue-400', fileUrl: '' },
-    { id: 2, title: 'AWS Fundamentals', category: 'Cloud Architecture', color: 'text-purple-400', fileUrl: '' }
+    { 
+      id: 1, 
+      title: 'AI/ML Workshop Certification', 
+      category: 'Artificial Intelligence with Machine Learning Workshop', 
+      color: 'text-blue-400', 
+      imageUrl: mernCertImg
+    },
+    { 
+      id: 2, 
+      title: 'Artificial Intelligence & Indian Knowledge Systems', 
+      category: 'International Conference on Artificial Intelligence & Indian Knowledge Systems', 
+      color: 'text-purple-400', 
+      imageUrl: awsCertImg
+    }
   ]);
 
-  const fileInputRef = useRef(null);
-
-  // Escape Key Listener to close popup windows seamlessly
+  // Escape Key Global Listener to dismiss open layout popups seamlessly
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === 'Escape') setIsContactOpen(false);
+      if (e.key === 'Escape') {
+        setIsContactOpen(false);
+        setIsCvOpen(false);
+        setSelectedCertificate(null);
+      }
     };
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
@@ -65,33 +88,6 @@ function App() {
     console.log('Connecting Form Dispatched Data:', formData);
     setIsContactOpen(false);
     setFormData({ name: '', email: '', message: '' });
-  };
-
-  // Trigger File Input Browser Window
-  const onUploadBoxClick = () => {
-    fileInputRef.current.click();
-  };
-
-  // Handle Certificate File Upload and Virtual Object URL Extraction
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      // Clean string extension for dynamic layout rendering
-      const cleanTitle = file.name.split('.').slice(0, -1).join('.') || file.name;
-
-      // Generating live preview blob address stream
-      const fileViewUrl = URL.createObjectURL(file);
-
-      const newCertificate = {
-        id: Date.now(),
-        title: cleanTitle,
-        category: 'Newly Uploaded',
-        color: 'text-emerald-400',
-        fileUrl: fileViewUrl
-      };
-
-      setUploadedCertificates([newCertificate, ...uploadedCertificates]);
-    }
   };
 
   // Animation Orchestration Variants for the Skills Bento Box section
@@ -139,7 +135,7 @@ function App() {
             />
           </motion.button>
 
-          {/* Skills Section (Only jumps if on Home Page) */}
+          {/* Skills Section Jump Trigger */}
           <motion.button
             onClick={() => {
               setActivePage('home');
@@ -155,7 +151,7 @@ function App() {
             <img src={skilsImg} alt="Skills" className="w-4 h-4 sm:w-5 sm:h-5" />
           </motion.button>
 
-          {/* Projects Link Button */}
+          {/* Projects Section Jump Trigger */}
           <motion.button
             onClick={() => {
               setActivePage('home');
@@ -171,7 +167,7 @@ function App() {
             <img src={Projects} alt="Projects" className="w-4 h-4 sm:w-5 sm:h-5" />
           </motion.button>
 
-          {/* Profile Active Bubble Section */}
+          {/* Linked In Dynamic Redirection */}
           <motion.a
             href="https://www.linkedin.com/in/rohit-kumar-8b3018392"
             target="_blank"
@@ -183,7 +179,7 @@ function App() {
             <img src={profileImg} alt="Profile" className="w-full h-full object-cover" />
           </motion.a>
 
-          {/* Certificates Custom Page Button */}
+          {/* Certificates Custom Section Page Button */}
           <motion.button
             onClick={() => {
               setActivePage('certificates');
@@ -197,7 +193,7 @@ function App() {
             <img src={Certifications} alt="Certifications" className={`w-4 h-4 sm:w-5 sm:h-5 ${activePage === 'certificates' ? 'brightness-0' : ''}`} />
           </motion.button>
 
-          {/* Documents Custom Page Button */}
+          {/* Documents (CV Showcase View) Page Button */}
           <motion.button
             onClick={() => {
               setActivePage('documents');
@@ -208,10 +204,10 @@ function App() {
             className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer flex-shrink-0 ${activePage === 'documents' ? 'bg-white' : 'bg-white/10 hover:bg-white/20'
               }`}
           >
-            <img src={arrow1} alt="Documents Page" className={`w-4 h-4 sm:w-5 sm:h-5 ${activePage === 'documents' ? 'brightness-0' : ''}`} />
+            <img src={arrow1} alt="CV Documents Page" className={`w-4 h-4 sm:w-5 sm:h-5 ${activePage === 'documents' ? 'brightness-0' : ''}`} />
           </motion.button>
 
-          {/* GitHub Icon Link */}
+          {/* GitHub Icon Link Redirector */}
           <motion.a
             href="https://github.com/Rohit-Kumar-CS"
             target="_blank"
@@ -469,7 +465,7 @@ function App() {
         </motion.div>
       )}
 
-      {/* 2. CUSTOM UPLOADING DOCUMENTS VIEW */}
+      {/* 2. CUSTOM CV SHOWCASE VIEW */}
       {activePage === 'documents' && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -478,18 +474,33 @@ function App() {
           className="min-h-screen bg-neutral-950 text-white pt-24 sm:pt-28 px-4 sm:px-10 md:px-20 flex flex-col items-center"
         >
           <div className="w-full max-w-4xl mt-6 sm:mt-10">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4">Upload Documents</h1>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4">Curriculum Vitae</h1>
             <p className="text-neutral-400 text-sm sm:text-base max-w-xl mb-8 sm:mb-12">
-              Securely host and keep track of your core academic, identity, or engineering project documents.
+              My professional background, academic qualifications, technical skill sets, and core projects compiled into a single document.
             </p>
 
-            {/* Drag & Drop Glassmorphism Frame Box */}
-            <div className="w-full border-2 border-dashed border-neutral-800 bg-neutral-900/40 rounded-2xl sm:rounded-3xl p-8 sm:p-16 flex flex-col items-center justify-center text-center group hover:border-blue-500/50 transition-all cursor-pointer">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <span className="text-xl sm:text-2xl text-neutral-400">↑</span>
+            {/* Modern Interactive Local CV Card Preview */}
+            <div 
+              onClick={() => setIsCvOpen(true)}
+              className="w-full max-w-2xl mx-auto bg-neutral-900/60 border border-neutral-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 group hover:border-blue-500/50 hover:bg-neutral-900/90 transition-all cursor-pointer shadow-xl"
+            >
+              <div className="flex items-center gap-4 text-center sm:text-left flex-col sm:flex-row">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-neutral-800 border border-neutral-700 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <span className="text-2xl text-blue-400">📄</span>
+                </div>
+                <div>
+                  <h3 className="font-sans text-lg sm:text-xl font-bold text-neutral-100 group-hover:text-white transition-colors">
+                    Rohit_Kumar_CV.pdf
+                  </h3>
+                  <p className="text-xs sm:text-sm text-neutral-400 mt-1">
+                    Click anywhere on this card to view my full professional resume
+                  </p>
+                </div>
               </div>
-              <p className="text-neutral-200 font-semibold text-base sm:text-lg">Click to select files or drag them here</p>
-              <span className="text-neutral-500 text-xs mt-2 block">Supports PDF, DOCX, PNG up to 15MB</span>
+
+              <button className="bg-white/10 hover:bg-white/20 text-neutral-200 text-xs font-sans px-4 py-2 rounded-xl transition-all backdrop-blur-md whitespace-nowrap">
+                View Resume ↗
+              </button>
             </div>
           </div>
         </motion.div>
@@ -506,58 +517,39 @@ function App() {
           <div className="w-full max-w-4xl mt-6 sm:mt-10">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4">Certifications Showcase</h1>
             <p className="text-neutral-400 text-sm sm:text-base max-w-xl mb-8 sm:mb-12">
-              A curated timeline gallery of my technical credentials, academic achievements, and global bootcamps. Click the dashed block below to upload files.
+              A curated gallery of my technical credentials, academic achievements, and global bootcamps. Click on any certificate to view it.
             </p>
 
-            {/* Hidden Input File Element */}
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleFileChange}
-              accept=".pdf, image/*"
-              className="hidden"
-            />
-
-            {/* Interactive Drag/Click Upload Container Block */}
-            <div
-              onClick={onUploadBoxClick}
-              className="w-full border-2 border-dashed border-neutral-800 bg-neutral-900/40 rounded-2xl sm:rounded-3xl p-8 sm:p-12 flex flex-col items-center justify-center text-center group hover:border-blue-500/50 transition-all cursor-pointer mb-8 sm:mb-12"
-            >
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <span className="text-lg sm:text-xl text-neutral-400">＋</span>
-              </div>
-              <p className="text-neutral-200 font-semibold text-sm sm:text-base">Click to upload your Certificate</p>
-              <span className="text-neutral-500 text-xs mt-1 block">Supports PDF or Image formats</span>
-            </div>
-
-            {/* Empty Showcase placeholder structure */}
+            {/* Grid displaying the preloaded certifications beautifully */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full mb-24">
               <AnimatePresence>
                 {uploadedCertificates.map((cert) => (
                   <motion.div
                     key={cert.id}
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
+                    onClick={() => setSelectedCertificate(cert)}
                     transition={{ duration: 0.4 }}
-                    className="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-5 sm:p-6 h-40 sm:h-48 flex flex-col justify-between group hover:border-neutral-700 transition-all relative overflow-hidden"
+                    className="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-5 sm:p-6 h-40 sm:h-48 flex flex-col justify-between group hover:border-neutral-700 hover:bg-neutral-900/90 transition-all relative overflow-hidden cursor-pointer"
                   >
-                    {/* View Action Trigger Button Link */}
-                    {cert.fileUrl ? (
-                      <a
-                        href={cert.fileUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-neutral-200 text-xs font-sans px-3 py-1.5 rounded-xl transition-all opacity-100 sm:opacity-0 sm:group-hover:opacity-100 backdrop-blur-md"
+                    {/* Top Meta Area with Action View Trigger */}
+                    <div className="flex justify-between items-start w-full">
+                      <span className={`font-mono text-[10px] sm:text-xs uppercase tracking-widest ${cert.color}`}>
+                        {cert.category}
+                      </span>
+                      
+                      <button
+                        className="bg-white/10 hover:bg-white/20 text-neutral-200 text-xs font-sans px-3 py-1.5 rounded-xl transition-all opacity-100 sm:opacity-0 sm:group-hover:opacity-100 backdrop-blur-md"
                       >
-                        View PDF ↗
-                      </a>
-                    ) : (
-                      <span className="absolute top-4 right-4 text-neutral-600 text-xs font-mono select-none">No Preview</span>
-                    )}
+                        View Certificate ↗
+                      </button>
+                    </div>
 
+                    {/* Title Content */}
                     <div className="mt-auto">
-                      <span className={`font-mono text-[10px] sm:text-xs uppercase tracking-widest mb-1 block ${cert.color}`}>{cert.category}</span>
-                      <h4 className="text-base sm:text-lg font-bold text-neutral-100 group-hover:text-white transition-colors">{cert.title}</h4>
+                      <h4 className="text-base sm:text-lg font-bold text-neutral-100 group-hover:text-white transition-colors">
+                        {cert.title}
+                      </h4>
                     </div>
                   </motion.div>
                 ))}
@@ -634,6 +626,94 @@ function App() {
             </div>
           )}
         </AnimatePresence>
+
+        {/* --- DYNAMIC CERTIFICATE IMAGE LIGHTBOX VIEWER --- */}
+        <AnimatePresence>
+          {selectedCertificate && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-10">
+              <motion.div 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }} 
+                exit={{ opacity: 0 }} 
+                onClick={() => setSelectedCertificate(null)} 
+                className="absolute inset-0 bg-black/90 backdrop-blur-md" 
+              />
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }} 
+                animate={{ opacity: 1, scale: 1 }} 
+                exit={{ opacity: 0, scale: 0.95 }} 
+                className="relative max-w-4xl w-full bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 z-10 flex flex-col"
+              >
+                {/* Modal Head Header */}
+                <div className="flex items-center justify-between p-4 bg-neutral-950/60 border-b border-neutral-800">
+                  <div>
+                    <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">{selectedCertificate.category}</span>
+                    <h3 className="font-sans text-lg font-bold text-white leading-tight">{selectedCertificate.title}</h3>
+                  </div>
+                  <button 
+                    onClick={() => setSelectedCertificate(null)} 
+                    className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  >
+                    ✕
+                  </button>
+                </div>
+                
+                {/* Real Image Container Viewport Area */}
+                <div className="w-full bg-neutral-950 flex items-center justify-center p-4 sm:p-6 overflow-hidden aspect-[4/3] sm:aspect-[16/10]">
+                  <img 
+                    src={selectedCertificate.imageUrl} 
+                    alt={selectedCertificate.title} 
+                    className="max-w-full max-h-full object-contain rounded-lg shadow-md"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+
+        {/* --- DYNAMIC CV IMAGE LIGHTBOX VIEWER --- */}
+        <AnimatePresence>
+          {isCvOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-10">
+              <motion.div 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }} 
+                exit={{ opacity: 0 }} 
+                onClick={() => setIsCvOpen(false)} 
+                className="absolute inset-0 bg-black/90 backdrop-blur-md" 
+              />
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }} 
+                animate={{ opacity: 1, scale: 1 }} 
+                exit={{ opacity: 0, scale: 0.95 }} 
+                className="relative max-w-3xl w-full bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 z-10 flex flex-col max-h-[90vh]"
+              >
+                {/* Modal Header */}
+                <div className="flex items-center justify-between p-4 bg-neutral-950/60 border-b border-neutral-800">
+                  <div>
+                    <h3 className="font-sans text-lg font-bold text-white leading-tight">My Curriculum Vitae</h3>
+                  </div>
+                  <button 
+                    onClick={() => setIsCvOpen(false)} 
+                    className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  >
+                    ✕
+                  </button>
+                </div>
+                
+                {/* CV Image Viewport Area */}
+                <div className="w-full bg-neutral-950 flex items-center justify-center p-4 overflow-y-auto">
+                  <img 
+                    src={myCvImg} 
+                    alt="Rohit Kumar CV" 
+                    className="max-w-full h-auto object-contain rounded-lg shadow-md"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+
       </footer>
     </>
   )
