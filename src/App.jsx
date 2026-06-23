@@ -9,7 +9,7 @@ import gitImg from './assets/Vector.png'
 import skilsImg from './assets/Group 2.png'
 import Projects from './assets/icon2.png'
 import Certifications from './assets/Icon3.png'
-import arrow1 from './assets/Arrow Up Right Contained.svg'
+import CV from './assets/tabler_file-cv3.png'
 import arrow3 from './assets/Arrow Up Left Contained1.png'
 import arrow2 from './assets/Arrow Up Left Contained.png'
 import html from './assets/html5-plain.png'
@@ -49,23 +49,23 @@ function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isCvOpen, setIsCvOpen] = useState(false);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
-  
+
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   // Curated Static Preloaded Certificates Array using imported local files
   const [uploadedCertificates, setUploadedCertificates] = useState([
-    { 
-      id: 1, 
-      title: 'AI/ML Workshop Certification', 
-      category: 'Artificial Intelligence with Machine Learning Workshop', 
-      color: 'text-blue-400', 
+    {
+      id: 1,
+      title: 'AI/ML Workshop Certification',
+      category: 'Artificial Intelligence with Machine Learning Workshop',
+      color: 'text-blue-400',
       imageUrl: mernCertImg
     },
-    { 
-      id: 2, 
-      title: 'Artificial Intelligence & Indian Knowledge Systems', 
-      category: 'International Conference on Artificial Intelligence & Indian Knowledge Systems', 
-      color: 'text-purple-400', 
+    {
+      id: 2,
+      title: 'Artificial Intelligence & Indian Knowledge Systems',
+      category: 'International Conference on Artificial Intelligence & Indian Knowledge Systems',
+      color: 'text-purple-400',
       imageUrl: awsCertImg
     }
   ]);
@@ -204,7 +204,12 @@ function App() {
             className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer flex-shrink-0 ${activePage === 'documents' ? 'bg-white' : 'bg-white/10 hover:bg-white/20'
               }`}
           >
-            <img src={arrow1} alt="CV Documents Page" className={`w-4 h-4 sm:w-5 sm:h-5 ${activePage === 'documents' ? 'brightness-0' : ''}`} />
+            <img
+              src={CV}
+              alt="CV Documents Page"
+              className={`w-4 h-4 sm:w-5 sm:h-5 scale-125 object-contain transition-all ${activePage === 'documents' ? 'brightness-0' : ''
+                }`}
+            />
           </motion.button>
 
           {/* GitHub Icon Link Redirector */}
@@ -235,7 +240,7 @@ function App() {
             <img src={heroImg} alt="Hero" className="w-full h-[50vh] sm:h-auto object-cover object-center opacity-95 sm:opacity-100" />
 
             <div className="absolute top-4 left-4 sm:top-5 sm:left-10 text-white text-sm sm:text-xl font-light drop-shadow-md z-10">
-              @ Code by Rohit
+              @Code by Rohit
             </div>
 
             <div className="absolute top-5 right-10 text-right text-white text-sm max-w-xs md:max-w-md hidden md:block z-10 drop-shadow-md">
@@ -244,29 +249,40 @@ function App() {
               through modern technologies
             </div>
 
-            <div className="absolute bottom-6 sm:bottom-16 md:bottom-24 lg:bottom-30 left-0 w-full overflow-hidden select-none pointer-events-none z-0">
-              <h1 className="text-[10vw] sm:text-[70px] md:text-[100px] lg:text-[150px] font-semibold text-white tracking-tight leading-none text-center px-4 w-full block whitespace-normal sm:whitespace-nowrap">
+            <div className="absolute bottom-2 sm:bottom-4 md:bottom-6 lg:bottom-8 left-0 w-full overflow-hidden select-none pointer-events-none z-0">
+              <h1 className="text-[9vw] sm:text-[65px] md:text-[85px] lg:text-[110px] font-semibold text-white tracking-tight leading-none text-center px-4 w-full block whitespace-normal">
                 Creative Developer & Designer
               </h1>
             </div>
 
-            <button className="absolute top-1/2 right-[10%] sm:right-[30%] -translate-y-1/2 w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 z-10">
+            {/* Floating Brand Logo / Instagram Redirect Link */}
+            <motion.a
+              href="https://www.instagram.com/rohit_lohiwal?igsh=MXQ5cnBoaGpxNmFudw==" // <-- Yahan apna real Instagram profile link daalein
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="absolute top-1/2 right-[10%] sm:right-[30%] -translate-y-1/2 w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center transition-transform z-10 cursor-pointer"
+            >
               <img src={logo} alt="Logo" className="w-full h-full object-contain" />
-            </button>
+            </motion.a>
           </section>
 
           {/* --- STATEMENT BIOGRAPHY --- */}
           <section className="flex flex-col lg:flex-row items-start lg:items-center justify-between px-4 sm:px-10 md:px-20 py-10 sm:py-16 gap-6 sm:gap-10 bg-white">
+            {/* Left Column Statement */}
             <div className="font-sans text-base sm:text-lg md:text-xl font-semibold max-w-2xl text-neutral-900 leading-relaxed">
               MCA student and aspiring Full-Stack Developer with a background in Computer Science. Passionate about building modern web applications, learning new technologies, and turning ideas into meaningful digital experiences.
             </div>
 
-            <div className="font-sans lg:text-right text-xs sm:text-sm text-[#616161] max-w-md flex flex-col gap-4 self-stretch justify-between items-start lg:items-end">
-              <p className="leading-relaxed">Combining technical knowledge, creativity, and continuous learning to build modern digital solutions.</p>
-              <button className="font-sans font-semibold text-sm gap-3 flex items-center justify-end text-black group cursor-pointer">
-                <span>More about me</span>
-                <img className="w-6 h-6 sm:w-8 sm:h-8 transition-transform group-hover:translate-x-1" src={arrow2} alt="Arrow" />
-              </button>
+            {/* Right Column Statement (Fixed Layout Stack) */}
+            <div className="font-sans lg:text-right text-xs sm:text-sm text-[#616161] max-w-md flex flex-col gap-3 items-start lg:items-end">
+              <p className="leading-relaxed">
+                Combining technical knowledge, creativity, and continuous learning to build modern digital solutions.
+              </p>
+              <p className="leading-relaxed">
+                Always seeking new challenges and opportunities to grow as a developer and designer.
+              </p>
             </div>
           </section>
 
@@ -344,7 +360,7 @@ function App() {
             </div>
 
             <button className="font-sans font-semibold text-base sm:text-lg text-neutral-900 mt-12 sm:mt-16 rounded-full border-2 border-neutral-900 px-6 py-3 sm:px-8 sm:py-3.5 hover:bg-neutral-900 hover:text-white transition-all cursor-pointer">
-             <a href="https://github.com/Rohit-Kumar-CS?tab=repositories" target="_blank" rel="noopener noreferrer">Explore more</a>
+              <a href="https://github.com/Rohit-Kumar-CS?tab=repositories" target="_blank" rel="noopener noreferrer">Explore more</a>
             </button>
           </section>
 
@@ -480,7 +496,7 @@ function App() {
             </p>
 
             {/* Modern Interactive Local CV Card Preview */}
-            <div 
+            <div
               onClick={() => setIsCvOpen(true)}
               className="w-full max-w-2xl mx-auto bg-neutral-900/60 border border-neutral-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 group hover:border-blue-500/50 hover:bg-neutral-900/90 transition-all cursor-pointer shadow-xl"
             >
@@ -537,7 +553,7 @@ function App() {
                       <span className={`font-mono text-[10px] sm:text-xs uppercase tracking-widest ${cert.color}`}>
                         {cert.category}
                       </span>
-                      
+
                       <button
                         className="bg-white/10 hover:bg-white/20 text-neutral-200 text-xs font-sans px-3 py-1.5 rounded-xl transition-all opacity-100 sm:opacity-0 sm:group-hover:opacity-100 backdrop-blur-md"
                       >
@@ -631,17 +647,17 @@ function App() {
         <AnimatePresence>
           {selectedCertificate && (
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-10">
-              <motion.div 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
-                exit={{ opacity: 0 }} 
-                onClick={() => setSelectedCertificate(null)} 
-                className="absolute inset-0 bg-black/90 backdrop-blur-md" 
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setSelectedCertificate(null)}
+                className="absolute inset-0 bg-black/90 backdrop-blur-md"
               />
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }} 
-                animate={{ opacity: 1, scale: 1 }} 
-                exit={{ opacity: 0, scale: 0.95 }} 
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
                 className="relative max-w-4xl w-full bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 z-10 flex flex-col"
               >
                 {/* Modal Head Header */}
@@ -650,19 +666,19 @@ function App() {
                     <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">{selectedCertificate.category}</span>
                     <h3 className="font-sans text-lg font-bold text-white leading-tight">{selectedCertificate.title}</h3>
                   </div>
-                  <button 
-                    onClick={() => setSelectedCertificate(null)} 
+                  <button
+                    onClick={() => setSelectedCertificate(null)}
                     className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white flex items-center justify-center transition-colors cursor-pointer"
                   >
                     ✕
                   </button>
                 </div>
-                
+
                 {/* Real Image Container Viewport Area */}
                 <div className="w-full bg-neutral-950 flex items-center justify-center p-4 sm:p-6 overflow-hidden aspect-[4/3] sm:aspect-[16/10]">
-                  <img 
-                    src={selectedCertificate.imageUrl} 
-                    alt={selectedCertificate.title} 
+                  <img
+                    src={selectedCertificate.imageUrl}
+                    alt={selectedCertificate.title}
                     className="max-w-full max-h-full object-contain rounded-lg shadow-md"
                   />
                 </div>
@@ -672,48 +688,47 @@ function App() {
         </AnimatePresence>
 
         {/* --- DYNAMIC CV IMAGE LIGHTBOX VIEWER --- */}
-        <AnimatePresence>
-          {isCvOpen && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-10">
-              <motion.div 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
-                exit={{ opacity: 0 }} 
-                onClick={() => setIsCvOpen(false)} 
-                className="absolute inset-0 bg-black/90 backdrop-blur-md" 
-              />
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }} 
-                animate={{ opacity: 1, scale: 1 }} 
-                exit={{ opacity: 0, scale: 0.95 }} 
-                className="relative max-w-3xl w-full bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 z-10 flex flex-col max-h-[90vh]"
-              >
-                {/* Modal Header */}
-                <div className="flex items-center justify-between p-4 bg-neutral-950/60 border-b border-neutral-800">
-                  <div>
-                    <h3 className="font-sans text-lg font-bold text-white leading-tight">My Curriculum Vitae</h3>
-                  </div>
-                  <button 
-                    onClick={() => setIsCvOpen(false)} 
-                    className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white flex items-center justify-center transition-colors cursor-pointer"
-                  >
-                    ✕
-                  </button>
-                </div>
-                
-                {/* CV Image Viewport Area */}
-                <div className="w-full bg-neutral-950 flex items-center justify-center p-4 overflow-y-auto">
-                  <img 
-                    src={myCvImg} 
-                    alt="Rohit Kumar CV" 
-                    className="max-w-full h-auto object-contain rounded-lg shadow-md"
-                  />
-                </div>
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
+<AnimatePresence>
+  {isCvOpen && (
+    <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 sm:p-10 overflow-y-auto bg-black/90 backdrop-blur-md">
+      {/* Background Overlay Click Trigger */}
+      <div 
+        onClick={() => setIsCvOpen(false)} 
+        className="fixed inset-0 cursor-pointer" 
+      />
+      
+      {/* Lightbox Modal Wrapper */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="relative max-w-3xl w-full bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 z-10 flex flex-col my-auto"
+      >
+        {/* Modal Header (Always Stays on Top) */}
+        <div className="flex items-center justify-between p-4 bg-neutral-950 border-b border-neutral-800 shrink-0">
+          <div>
+            <h3 className="font-sans text-lg font-bold text-white leading-tight">My Curriculum Vitae</h3>
+          </div>
+          <button
+            onClick={() => setIsCvOpen(false)}
+            className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white flex items-center justify-center transition-colors cursor-pointer"
+          >
+            ✕
+          </button>
+        </div>
 
+        {/* CV Image Viewport Area (Fixed Top Alignment for Long Documents) */}
+        <div className="w-full bg-neutral-950 p-4 flex flex-col items-center justify-start overflow-y-visible">
+          <img
+            src={myCvImg}
+            alt="Rohit Kumar CV"
+            className="w-full h-auto object-contain rounded-lg shadow-md block"
+          />
+        </div>
+      </motion.div>
+    </div>
+  )}
+</AnimatePresence>
       </footer>
     </>
   )
