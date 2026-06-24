@@ -272,7 +272,7 @@ function App() {
               through modern technologies
             </div>
 
-            <div className="absolute bottom-2 sm:bottom-4 md:bottom-6 lg:bottom-8 left-0 w-full overflow-hidden select-none pointer-events-none z-0">
+            <div className="absolute bottom-2 sm:bottom-4 md:bottom-6 lg:bottom-8 left-0 w-full select-none pointer-events-none z-0">
               <h1 className="text-[9vw] sm:text-[65px] md:text-[85px] lg:text-[110px] font-semibold text-white tracking-tight leading-none text-center px-4 w-full block whitespace-normal">
                 Creative Developer & Designer
               </h1>
