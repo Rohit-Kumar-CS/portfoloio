@@ -398,7 +398,7 @@ function App() {
               Skills that fuel my passion
             </h1>
 
-            <div className="w-full bg-neutral-950 p-4 sm:p-6 text-white flex justify-center items-center overflow-hidden rounded-2xl sm:rounded-3xl">
+            <div className="max-w-6xl mx-auto bg-neutral-950 p-4 sm:p-6 text-white flex justify-center items-center overflow-hidden rounded-2xl sm:rounded-3xl">
               <motion.div variants={bentoContainerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[minmax(150px,_auto)]">
 
                 <motion.div variants={bentoCardVariants} className="bg-neutral-900 border border-neutral-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col justify-between lg:row-span-2">
