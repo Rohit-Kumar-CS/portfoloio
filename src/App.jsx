@@ -112,62 +112,83 @@ function App() {
 
   return (
     <>
-      {/* --- FLOATING GLASS NAVIGATION DOCK --- */}
       <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-max">
         <div className="flex items-center justify-center gap-2 sm:gap-4 px-3 sm:px-6 py-2.5 sm:py-3 rounded-2xl bg-black/80 backdrop-blur-xl border border-white/20 shadow-lg">
 
-          {/* Home Button */}
-          <motion.button
-            onClick={() => {
-              setActivePage('home');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer flex-shrink-0 ${activePage === 'home' ? 'bg-white' : 'bg-white/10 hover:bg-white/20'
-              }`}
-          >
-            <img
-              src={homeImg}
-              alt="Home"
-              className={`w-4 h-4 sm:w-5 sm:h-5 transition-all ${activePage === 'home' ? 'brightness-0' : ''
-                }`}
-            />
-          </motion.button>
+   {/* Home Button */}
+<motion.button
+  onClick={() => {
+    setActivePage('home');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }}
+  whileHover={{ scale: 1.1 }}
+  whileTap={{ scale: 0.95 }}
+  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer flex-shrink-0 ${
+    activePage === 'home' ? 'bg-white' : 'bg-white/10 hover:bg-white/20'
+  }`}
+>
+  <img
+    src={homeImg}
+    alt="Home"
+    className={`w-4 h-4 sm:w-5 sm:h-5 transition-all ${
+      activePage === 'home' ? 'brightness-0' : ''
+    }`}
+  />
+</motion.button>
 
-          {/* Skills Section Jump Trigger */}
-          <motion.button
-            onClick={() => {
-              setActivePage('home');
-              setTimeout(() => {
-                const targetY = window.innerWidth < 640 ? 2750 : 2120;
-                window.scrollTo({ top: targetY, behavior: 'smooth' });
-              }, 100);
-            }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors cursor-pointer flex-shrink-0"
-          >
-            <img src={skilsImg} alt="Skills" className="w-4 h-4 sm:w-5 sm:h-5" />
-          </motion.button>
+{/* Skills Section Jump Trigger */}
+<motion.button
+  onClick={() => {
+    setActivePage('skills'); // Dynamic UI Active State
+    setTimeout(() => {
+      const element = document.getElementById('skills-section');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 120);
+  }}
+  whileHover={{ scale: 1.1 }}
+  whileTap={{ scale: 0.95 }}
+  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer flex-shrink-0 ${
+    activePage === 'skills' ? 'bg-white' : 'bg-white/10 hover:bg-white/20'
+  }`}
+>
+  <img 
+    src={skilsImg} 
+    alt="Skills" 
+    className={`w-4 h-4 sm:w-5 sm:h-5 transition-all ${
+      activePage === 'skills' ? 'brightness-0' : ''
+    }`} 
+  />
+</motion.button>
 
-          {/* Projects Section Jump Trigger */}
-          <motion.button
-            onClick={() => {
-              setActivePage('home');
-              setTimeout(() => {
-                const targetY = window.innerWidth < 640 ? 780 : 880;
-                window.scrollTo({ top: targetY, behavior: 'smooth' });
-              }, 100);
-            }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors cursor-pointer flex-shrink-0"
-          >
-            <img src={Projects} alt="Projects" className="w-4 h-4 sm:w-5 sm:h-5" />
-          </motion.button>
+{/* Projects Section Jump Trigger */}
+<motion.button
+  onClick={() => {
+    setActivePage('projects'); // Dynamic UI Active State
+    setTimeout(() => {
+      const element = document.getElementById('projects-section');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 120);
+  }}
+  whileHover={{ scale: 1.1 }}
+  whileTap={{ scale: 0.95 }}
+  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer flex-shrink-0 ${
+    activePage === 'projects' ? 'bg-white' : 'bg-white/10 hover:bg-white/20'
+  }`}
+>
+  <img 
+    src={Projects} 
+    alt="Projects" 
+    className={`w-4 h-4 sm:w-5 sm:h-5 transition-all ${
+      activePage === 'projects' ? 'brightness-0' : ''
+    }`} 
+  />
+</motion.button>
 
-          {/* Linked In Dynamic Redirection */}
+          {/* LinkedIn Link */}
           <motion.a
             href="https://www.linkedin.com/in/rohit-kumar-8b3018392"
             target="_blank"
@@ -179,7 +200,7 @@ function App() {
             <img src={profileImg} alt="Profile" className="w-full h-full object-cover" />
           </motion.a>
 
-          {/* Certificates Custom Section Page Button */}
+          {/* Certificates Button */}
           <motion.button
             onClick={() => {
               setActivePage('certificates');
@@ -193,7 +214,7 @@ function App() {
             <img src={Certifications} alt="Certifications" className={`w-4 h-4 sm:w-5 sm:h-5 ${activePage === 'certificates' ? 'brightness-0' : ''}`} />
           </motion.button>
 
-          {/* Documents (CV Showcase View) Page Button */}
+          {/* Documents Button */}
           <motion.button
             onClick={() => {
               setActivePage('documents');
@@ -212,7 +233,7 @@ function App() {
             />
           </motion.button>
 
-          {/* GitHub Icon Link Redirector */}
+          {/* GitHub Link */}
           <motion.a
             href="https://github.com/Rohit-Kumar-CS"
             target="_blank"
@@ -233,8 +254,10 @@ function App() {
           ========================================== */}
 
       {/* 1. MAIN PORTFOLIO HOME VIEW */}
-      {activePage === 'home' && (
+
+      {(activePage === 'home' || activePage === 'skills' || activePage === 'projects') && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+
           {/* --- HERO SECTION --- */}
           <section className="relative p-0 m-0 min-h-[45vh] sm:min-h-0 overflow-hidden flex items-center bg-[#a3a3a3]">
             <img src={heroImg} alt="Hero" className="w-full h-[50vh] sm:h-auto object-cover object-center opacity-95 sm:opacity-100" />
@@ -269,25 +292,30 @@ function App() {
           </section>
 
           {/* --- STATEMENT BIOGRAPHY --- */}
-          <section className="flex flex-col lg:flex-row items-start lg:items-center justify-between px-4 sm:px-10 md:px-20 py-10 sm:py-16 gap-6 sm:gap-10 bg-white">
-            {/* Left Column Statement */}
-            <div className="font-sans text-base sm:text-lg md:text-xl font-semibold max-w-2xl text-neutral-900 leading-relaxed">
-              MCA student and aspiring Full-Stack Developer with a background in Computer Science. Passionate about building modern web applications, learning new technologies, and turning ideas into meaningful digital experiences.
-            </div>
+          <section className="flex flex-col items-center justify-between px-4 sm:px-10 md:px-20 py-10 sm:py-16 bg-white overflow-hidden">
+            {/* Wrap content inside a max-w-6xl container just like the portfolio grid */}
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between w-full max-w-6xl gap-6 sm:gap-10">
 
-            {/* Right Column Statement (Fixed Layout Stack) */}
-            <div className="font-sans lg:text-right text-xs sm:text-sm text-[#616161] max-w-md flex flex-col gap-3 items-start lg:items-end">
-              <p className="leading-relaxed">
-                Combining technical knowledge, creativity, and continuous learning to build modern digital solutions.
-              </p>
-              <p className="leading-relaxed">
-                Always seeking new challenges and opportunities to grow as a developer and designer.
-              </p>
+              {/* Left Column Statement */}
+              <div className="font-sans text-base sm:text-lg md:text-xl font-semibold max-w-2xl text-neutral-900 leading-relaxed">
+                MCA student and aspiring Full-Stack Developer with a background in Computer Science. Passionate about building modern web applications, learning new technologies, and turning ideas into meaningful digital experiences.
+              </div>
+
+              {/* Right Column Statement (Fixed Layout Stack) */}
+              <div className="font-sans lg:text-right text-xs sm:text-sm text-[#616161] max-w-md flex flex-col gap-3 items-start lg:items-end">
+                <p className="leading-relaxed">
+                  Combining technical knowledge, creativity, and continuous learning to build modern digital solutions.
+                </p>
+                <p className="leading-relaxed">
+                  Always seeking new challenges and opportunities to grow as a developer and designer.
+                </p>
+              </div>
+
             </div>
           </section>
 
           {/* --- WORKS PORTFOLIO GRID SECTION --- */}
-          <section className="flex flex-col items-center justify-between px-4 sm:px-10 md:px-20 py-12 sm:py-20 bg-white overflow-hidden">
+          <section id="projects-section" className="flex flex-col items-center justify-between px-4 sm:px-10 md:px-20 py-12 sm:py-20 bg-white overflow-hidden">
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between w-full max-w-6xl mb-10 sm:mb-16 gap-4">
               <div className="font-sans text-3xl sm:text-4xl md:text-5xl font-semibold text-neutral-900 tracking-tight">
                 Impressive Works
@@ -365,7 +393,7 @@ function App() {
           </section>
 
           {/* --- TECHNICAL SKILLS BENTO BOX SECTION --- */}
-          <section className="flex flex-col items-center justify-between px-4 sm:px-10 md:px-20 py-14 sm:py-20 bg-black text-white">
+          <section id="skills-section" className="flex flex-col items-center justify-between px-4 sm:px-10 md:px-20 py-14 sm:py-20 bg-black text-white">
             <h1 className="text-center font-sans text-3xl sm:text-5xl md:text-7xl font-medium tracking-tight mb-10 sm:mb-16 max-w-4xl">
               Skills that fuel my passion
             </h1>
@@ -578,7 +606,8 @@ function App() {
 
       {/* --- GLOBAL CONNECT FOOTER (Stays visible across the app) --- */}
       <footer className="relative w-full bg-white px-4 sm:px-10 md:px-20 py-12 sm:py-20 border-t border-neutral-100 overflow-hidden">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-start justify-between gap-10 md:gap-6">
+        {/* REMOVED max-w-6xl and mx-auto to let it expand fully */}
+        <div className="w-full flex flex-col md:flex-row md:items-start justify-between gap-10 md:gap-6">
           <div className="flex flex-col">
             <span className="font-sans text-neutral-400 text-sm sm:text-base font-medium mb-2 sm:mb-3 tracking-wide">That's all for now.</span>
             <h2 className="font-sans text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight text-neutral-900 leading-[1.15] md:leading-[1.1]">Got a project in mind?<br />Let's talk</h2>
@@ -597,7 +626,8 @@ function App() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto mt-12 sm:mt-20 pt-6 sm:pt-8 border-t border-neutral-200/60 flex flex-col sm:flex-row items-start gap-6 sm:gap-24 text-xs sm:text-sm font-sans">
+        {/* REMOVED max-w-6xl and mx-auto from the bottom info row too */}
+        <div className="w-full mt-12 sm:mt-20 pt-6 sm:pt-8 border-t border-neutral-200/60 flex flex-col sm:flex-row items-start gap-6 sm:gap-24 text-xs sm:text-sm font-sans">
           <div className="flex flex-col gap-1">
             <span className="text-neutral-400 font-medium tracking-wide uppercase text-[10px] sm:text-xs">Email</span>
             <a href="mailto:rk.rohitkumar.tech@gmail.com" className="text-neutral-800 font-semibold text-sm sm:text-base hover:text-blue-600 transition-colors">rk.rohitkumar.tech@gmail.com</a>
@@ -607,7 +637,6 @@ function App() {
             <a href="tel:+918392822055" className="text-neutral-800 font-semibold text-sm sm:text-base hover:text-blue-600 transition-colors tracking-wide">(+91) 8392822055</a>
           </div>
         </div>
-
 
         {/* --- POPUP CONNECT WINDOW MODAL CONTAINER --- */}
         <AnimatePresence>
@@ -647,40 +676,17 @@ function App() {
         <AnimatePresence>
           {selectedCertificate && (
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-10">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setSelectedCertificate(null)}
-                className="absolute inset-0 bg-black/90 backdrop-blur-md"
-              />
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="relative max-w-4xl w-full bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 z-10 flex flex-col"
-              >
-                {/* Modal Head Header */}
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedCertificate(null)} className="absolute inset-0 bg-black/90 backdrop-blur-md" />
+              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} className="relative max-w-4xl w-full bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 z-10 flex flex-col">
                 <div className="flex items-center justify-between p-4 bg-neutral-950/60 border-b border-neutral-800">
                   <div>
                     <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">{selectedCertificate.category}</span>
                     <h3 className="font-sans text-lg font-bold text-white leading-tight">{selectedCertificate.title}</h3>
                   </div>
-                  <button
-                    onClick={() => setSelectedCertificate(null)}
-                    className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white flex items-center justify-center transition-colors cursor-pointer"
-                  >
-                    ✕
-                  </button>
+                  <button onClick={() => setSelectedCertificate(null)} className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white flex items-center justify-center transition-colors cursor-pointer">✕</button>
                 </div>
-
-                {/* Real Image Container Viewport Area */}
                 <div className="w-full bg-neutral-950 flex items-center justify-center p-4 sm:p-6 overflow-hidden aspect-[4/3] sm:aspect-[16/10]">
-                  <img
-                    src={selectedCertificate.imageUrl}
-                    alt={selectedCertificate.title}
-                    className="max-w-full max-h-full object-contain rounded-lg shadow-md"
-                  />
+                  <img src={selectedCertificate.imageUrl} alt={selectedCertificate.title} className="max-w-full max-h-full object-contain rounded-lg shadow-md" />
                 </div>
               </motion.div>
             </div>
@@ -688,47 +694,24 @@ function App() {
         </AnimatePresence>
 
         {/* --- DYNAMIC CV IMAGE LIGHTBOX VIEWER --- */}
-<AnimatePresence>
-  {isCvOpen && (
-    <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 sm:p-10 overflow-y-auto bg-black/90 backdrop-blur-md">
-      {/* Background Overlay Click Trigger */}
-      <div 
-        onClick={() => setIsCvOpen(false)} 
-        className="fixed inset-0 cursor-pointer" 
-      />
-      
-      {/* Lightbox Modal Wrapper */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        className="relative max-w-3xl w-full bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 z-10 flex flex-col my-auto"
-      >
-        {/* Modal Header (Always Stays on Top) */}
-        <div className="flex items-center justify-between p-4 bg-neutral-950 border-b border-neutral-800 shrink-0">
-          <div>
-            <h3 className="font-sans text-lg font-bold text-white leading-tight">My Curriculum Vitae</h3>
-          </div>
-          <button
-            onClick={() => setIsCvOpen(false)}
-            className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white flex items-center justify-center transition-colors cursor-pointer"
-          >
-            ✕
-          </button>
-        </div>
-
-        {/* CV Image Viewport Area (Fixed Top Alignment for Long Documents) */}
-        <div className="w-full bg-neutral-950 p-4 flex flex-col items-center justify-start overflow-y-visible">
-          <img
-            src={myCvImg}
-            alt="Rohit Kumar CV"
-            className="w-full h-auto object-contain rounded-lg shadow-md block"
-          />
-        </div>
-      </motion.div>
-    </div>
-  )}
-</AnimatePresence>
+        <AnimatePresence>
+          {isCvOpen && (
+            <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 sm:p-10 overflow-y-auto bg-black/90 backdrop-blur-md">
+              <div onClick={() => setIsCvOpen(false)} className="fixed inset-0 cursor-pointer" />
+              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} className="relative max-w-3xl w-full bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 z-10 flex flex-col my-auto">
+                <div className="flex items-center justify-between p-4 bg-neutral-950 border-b border-neutral-800 shrink-0">
+                  <div>
+                    <h3 className="font-sans text-lg font-bold text-white leading-tight">My Curriculum Vitae</h3>
+                  </div>
+                  <button onClick={() => setIsCvOpen(false)} className="w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white flex items-center justify-center transition-colors cursor-pointer">✕</button>
+                </div>
+                <div className="w-full bg-neutral-950 p-4 flex flex-col items-center justify-start overflow-y-visible">
+                  <img src={myCvImg} alt="Rohit Kumar CV" className="w-full h-auto object-contain rounded-lg shadow-md block" />
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
       </footer>
     </>
   )
