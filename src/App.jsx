@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 import heroImg from './assets/p-img.png'
 import logo from './assets/Icon.png'
-import profileImg from './assets/Skuyxz - Collection _ OpenSea.png'
+import profileImg from './assets/circum_linkedin.png'
 import homeImg from './assets/Home 02.png'
 import gitImg from './assets/Vector.png'
 import skilsImg from './assets/Group 2.png'
@@ -195,7 +195,7 @@ function App() {
             rel="noreferrer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-cyan-200 flex items-center justify-center overflow-hidden cursor-pointer flex-shrink-0"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center overflow-hidden cursor-pointer flex-shrink-0"
           >
             <img src={profileImg} alt="Profile" className="w-full h-full object-cover" />
           </motion.a>
@@ -613,17 +613,7 @@ function App() {
             <h2 className="font-sans text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight text-neutral-900 leading-[1.15] md:leading-[1.1]">Got a project in mind?<br />Let's talk</h2>
           </div>
 
-          <div className="relative flex items-center justify-start md:justify-center pt-2 md:pt-12">
-            <div className="absolute right-[-100vw] left-[-100vw] h-[1px] bg-neutral-200 top-1/2 -translate-y-1/2 pointer-events-none z-0 hidden md:block" />
-            <motion.button
-              onClick={() => setIsContactOpen(true)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.96 }}
-              className="relative z-10 w-32 h-32 sm:w-44 sm:h-44 rounded-full bg-[#405cf5] hover:bg-blue-700 text-white font-sans font-medium text-sm sm:text-base shadow-xl flex items-center justify-center transition-colors duration-300 focus:outline-none cursor-pointer"
-            >
-              Get in touch
-            </motion.button>
-          </div>
+          
         </div>
 
         {/* REMOVED max-w-6xl and mx-auto from the bottom info row too */}
